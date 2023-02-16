@@ -55,7 +55,7 @@ def printinfo(DetailsPrinted):
     TotGrossPay = 0.00
     TotTax = 0.00
     TotNetPay = 0.00
-#*********************************************************************************
+#**************************************************************************
     with open(FILENAME, 'r') as EmpFile:
         while True:
             rundate = input ("Enter start date for report (MM/DD/YYYY) or All for all data in file: ")
@@ -74,7 +74,7 @@ def printinfo(DetailsPrinted):
                 break
             EmpDetail = EmpDetail.strip()
             EmpList = EmpDetail.split('|')
-#*********************************************************************************
+#**************************************************************************
             fromdate = EmpList[0]
             if (str(rundate).upper() != "ALL"):
                 checkdate = datetime.strptime(fromdate, "%Y-%m-%d")
@@ -119,7 +119,7 @@ def PrintTotals(EmpTotals):
     print(f'Total Gross Pay: {EmpTotals["TotGrossPay"]:,.2f}')
     print(f'Total Income Tax:  {EmpTotals["TotTax"]:,.2f}')
     print(f'Total Net Pay: {EmpTotals["TotNetPay"]:,.2f}')   
-#*********************************************************************************
+#**************************************************************************
 if __name__ == "__main__":
         with open(FILENAME, 'a') as EmpFile:
 
@@ -138,8 +138,7 @@ if __name__ == "__main__":
                 todate = todate.strftime('%Y-%m-%d')
                 EmpDetail = f"{fromdate}|{todate}|{empname}|{hours}|{hourlyrate}|{taxrate}\n"
                 
-                EmpFile.write(EmpDetail)
-                
+                EmpFile.write(EmpDetail)   
             EmpFile.close() 
             printinfo(DetailsPrinted)
-#*********************************************************************************
+#**************************************************************************
